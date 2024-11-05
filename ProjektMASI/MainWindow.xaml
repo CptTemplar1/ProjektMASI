@@ -3,10 +3,101 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ProjektMASI"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800"
+        MinWidth="800" MinHeight="450"
+        Background="#1E1E1E">
+    <Window.Resources>
+        <Style x:Key="ToggleSwitchStyle" TargetType="ToggleButton">
+            <Setter Property="Background" Value="#DDDDDD"/>
+            <Setter Property="BorderBrush" Value="#888888"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ToggleButton">
+                        <Grid>
+                            <Border x:Name="SwitchBorder" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="15">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Text="A" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" FontWeight="Bold"/>
+                                    <TextBlock Text="B" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Foreground="Black" FontWeight="Bold"/>
+                                </Grid>
+                            </Border>
+                            <Ellipse x:Name="ToggleCircle" Fill="White" Width="30" Height="30" VerticalAlignment="Center" 
+                                     HorizontalAlignment="Left" RenderTransformOrigin="0.5,0.5">
+                                <Ellipse.RenderTransform>
+                                    <TranslateTransform x:Name="ToggleTransform"/>
+                                </Ellipse.RenderTransform>
+                            </Ellipse>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="ToggleCircle" Property="RenderTransform">
+                                    <Setter.Value>
+                                        <TranslateTransform X="30" />
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter TargetName="SwitchBorder" Property="Background" Value="#007ACC"/>
+                                <Setter TargetName="SwitchBorder" Property="BorderBrush" Value="#005B99"/>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="False">
+                                <Setter TargetName="ToggleCircle" Property="RenderTransform">
+                                    <Setter.Value>
+                                        <TranslateTransform X="0" />
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter TargetName="SwitchBorder" Property="Background" Value="#DDDDDD"/>
+                                <Setter TargetName="SwitchBorder" Property="BorderBrush" Value="#888888"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
+        <Grid x:Name="TopPanel" Background="#333333" Height="100" Grid.Row="0">
+            <StackPanel>
+                <TextBlock Text="Zasada działania programu" FontSize="16" FontWeight="Bold" Foreground="White"/>
+                <TextBlock Text="Krótka instrukcja postępowania:" FontSize="14" Foreground="LightGray"/>
+                <TextBlock Text="1. Użyj menu po lewej stronie, aby nawigować." FontSize="12" Foreground="LightGray"/>
+                <TextBlock Text="2. W głównej części okna edytuj dane." FontSize="12" Foreground="LightGray"/>
+            </StackPanel>
+        </Grid>
+
+        <Grid x:Name="MainGrid" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel x:Name="SideMenu" Background="#252526" Width="200" VerticalAlignment="Stretch">
+                <TextBlock FontSize="14" Foreground="LightGray" HorizontalAlignment="Center"><Run Language="pl-pl" Text="Za którą pozycję zamienić"/></TextBlock>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <RadioButton Content="A" Checked="RadioButton_Checked"/>
+                    <RadioButton Content="B"/>
+                </StackPanel>
+                <Button Content="ZAMIEŃ" Margin="10" Background="#007ACC" Foreground="White"/>
+                <Button Content="COFNIJ" Background="#007ACC" Foreground="White" Margin="10,10,10,10" Click="Button_Click_1"/>
+                <TextBlock FontSize="14" Foreground="LightGray" Text="Skalowanie unitermów" HorizontalAlignment="Center"/>
+                <Slider Width="120"/>
+                <Button Content="WYCZYŚĆ POLA" Margin="10" Background="#007ACC" Foreground="White" Click="Button_Click"/>
+                <ToggleButton x:Name="ToggleButton" Width="80" Height="40" Style="{StaticResource ToggleSwitchStyle}" />
+            </StackPanel>
+
+            <ScrollViewer Grid.Column="1" Background="#2D2D30" Margin="10">
+                <StackPanel x:Name="MainContent" VerticalAlignment="Stretch">
+                    <TextBlock Text="Tutaj będą wyświetlane dane." FontSize="16" Foreground="White" Margin="10"/>
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
     </Grid>
 </Window>
