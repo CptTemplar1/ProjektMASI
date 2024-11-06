@@ -36,11 +36,13 @@ namespace ProjektMASI
 
         }
 
-        //metoda rozszerzająca pola tekstowe dopasowując je do dłuższego tekstu
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (sender is TextBox textBox)
             {
+                // Pobranie minimalnej szerokości z kontrolki TextBox
+                double minWidth = textBox.MinWidth;
+
                 // Mierzenie szerokości tekstu w TextBox
                 var formattedText = new FormattedText(
                     textBox.Text,
@@ -52,10 +54,14 @@ namespace ProjektMASI
                     new NumberSubstitution(),
                     1);
 
-                // Dodanie marginesu do szerokości i przypisanie do szerokości TextBox
-                textBox.Width = formattedText.Width + 10; // Dodajemy 10 dla lepszego odstępu
+                // Obliczanie nowej szerokości na podstawie tekstu
+                double newWidth = formattedText.Width + 10; // Dodajemy 10 dla lepszego odstępu
+
+                // Ustawianie szerokości TextBox z zachowaniem minimalnej szerokości
+                textBox.Width = Math.Max(newWidth, minWidth);
             }
         }
+
 
 
         private void TopTextPanel_SizeChanged(object sender, SizeChangedEventArgs e)
@@ -110,6 +116,31 @@ namespace ProjektMASI
                 }
             }
         });
+            }
+        }
+
+        //Wyczyść wszystkie pola tekstowe w kontenerze MainCOntent
+        private void ClearFieldsButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Wywołujemy metodę czyszczenia dla MainContent
+            ClearTextFields(MainContent);
+        }
+
+        private void ClearTextFields(Panel container)
+        {
+            // Iteracja po wszystkich dzieciach kontenera
+            foreach (var child in container.Children)
+            {
+                // Jeśli dziecko jest TextBox, to czyścimy jego zawartość
+                if (child is TextBox textBox)
+                {
+                    textBox.Clear();
+                }
+                // Jeśli dziecko jest kontenerem (np. StackPanel, Grid), rekurencyjnie wywołujemy metodę
+                else if (child is Panel childPanel)
+                {
+                    ClearTextFields(childPanel); // Rekurencja na zagnieżdżonym kontenerze
+                }
             }
         }
 

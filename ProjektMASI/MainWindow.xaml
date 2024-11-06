@@ -82,18 +82,18 @@
             <StackPanel x:Name="SideMenu" Background="#252526" Width="200" VerticalAlignment="Stretch">
                 <TextBlock FontSize="14" Foreground="LightGray" HorizontalAlignment="Center"><Run Language="pl-pl" Text="Za którą pozycję zamienić"/></TextBlock>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <RadioButton Content="A" Checked="RadioButton_Checked"/>
+                    <RadioButton Content="A" Checked="RadioButton_Checked" IsChecked="True"/>
                     <RadioButton Content="B"/>
                 </StackPanel>
                 <Button Content="ZAMIEŃ" Margin="10" Background="#007ACC" Foreground="White"/>
                 <Button Content="COFNIJ" Background="#007ACC" Foreground="White" Margin="10,10,10,10" Click="Button_Click_1"/>
                 <TextBlock FontSize="14" Foreground="LightGray" Text="Skalowanie unitermów" HorizontalAlignment="Center"/>
                 <Slider Width="120"/>
-                <Button Content="WYCZYŚĆ POLA" Margin="10" Background="#007ACC" Foreground="White" Click="Button_Click"/>
+                <Button Content="WYCZYŚĆ POLA" Margin="10" Background="#007ACC" Foreground="White" Click="ClearFieldsButton_Click"/>
                 <ToggleButton x:Name="ToggleButton" Width="80" Height="40" Style="{StaticResource ToggleSwitchStyle}" />
             </StackPanel>
 
-            <ScrollViewer Grid.Column="1" Background="#2D2D30" Margin="10">
+            <ScrollViewer Grid.Column="1" Background="#2D2D30" Margin="10" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
                 <StackPanel x:Name="MainContent" VerticalAlignment="Stretch">
                     <StackPanel HorizontalAlignment="Center" Margin="10,30,10,10">
                         <!-- Górne pola tekstowe z zakrzywioną linią -->
@@ -103,8 +103,8 @@
                             </Path.Data>
                         </Path>
                         <StackPanel x:Name="TopTextPanel" Orientation="Horizontal" Margin="10,10,10,0" HorizontalAlignment="Left" SizeChanged="TopTextPanel_SizeChanged">
-                            <TextBox Width="100" MaxLength="50" TextChanged="TextBox_TextChanged"/>
-                            <TextBox Width="100" MaxLength="50" TextChanged="TextBox_TextChanged"/>
+                            <TextBox MinWidth="100" MaxLength="50" TextChanged="TextBox_TextChanged" TextAlignment="Center"/>
+                            <TextBox MinWidth="100" MaxLength="50" TextChanged="TextBox_TextChanged" TextAlignment="Center"/>
                         </StackPanel>
                     </StackPanel>
 
@@ -124,8 +124,8 @@
                             </Path.Data>
                         </Path>
                         <StackPanel x:Name="LeftTextPanel" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" SizeChanged="LeftTextPanel_SizeChanged">
-                            <TextBox Width="100" MaxLength="50" TextChanged="TextBox_TextChanged" Margin="0,0,0,20" HorizontalAlignment="Left"/>
-                            <TextBox Width="100" MaxLength="50" TextChanged="TextBox_TextChanged" HorizontalAlignment="Left"/>
+                            <TextBox MinWidth="100" MaxLength="50" TextChanged="TextBox_TextChanged" Margin="0,0,0,20" HorizontalAlignment="Left" TextAlignment="Center"/>
+                            <TextBox MinWidth="100" MaxLength="50" TextChanged="TextBox_TextChanged" HorizontalAlignment="Left" TextAlignment="Center"/>
                         </StackPanel>
                     </StackPanel>
                 </StackPanel>
