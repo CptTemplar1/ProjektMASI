@@ -89,10 +89,10 @@ namespace ProjektMASI
             if (LeftTextPanel != null && LeftPath != null)
             {
                 // Ustawienie wysokości LeftPath na wysokość LeftTextPanel
-                LeftPath.Height = LeftTextPanel.ActualHeight;
+                //LeftPath.Height = LeftTextPanel.ActualHeight / 2; //modyfikacja wysokości jest niepotrzebna, bo wtedy robi się za bardzo wypukła linia
 
                 // Ustawienie szerokości LeftPath na szerokość LeftTextPanel
-                LeftPath.Width = LeftTextPanel.ActualWidth / 2;
+                LeftPath.Width = LeftTextPanel.ActualHeight;
 
                 // Dostosowanie danych geometrycznych Path, aby linia była skalowana poprawnie
                 LeftPath.Data = new PathGeometry(new PathFigureCollection
