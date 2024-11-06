@@ -57,39 +57,41 @@ namespace ProjektMASI
             }
         }
 
-        private void UpdatePath(object sender, SizeChangedEventArgs e)
+
+        private void TopTextPanel_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            // Aktualizuje górną linię (nawias) dla pól tekstowych obok siebie
-            var path = (Path)((Grid)sender).Children[0];
-            double width = e.NewSize.Width - 20;
-            path.Data = Geometry.Parse(string.Format(
-                System.Globalization.CultureInfo.InvariantCulture,
-                "M 10,0 C 10,0 {0},-20 {1},0",
-                width / 2, width + 10));
+            if (TopTextPanel != null && TopPath != null)
+            {
+                // Ustawienie szerokości TopPath na szerokość TopTextPanel
+                TopPath.Width = TopTextPanel.ActualWidth;
+
+                // Dostosowanie danych geometrycznych Path, aby linia była skalowana poprawnie
+                TopPath.Data = new PathGeometry(new PathFigureCollection
+        {
+            new PathFigure
+            {
+                StartPoint = new Point(0, 0),
+                Segments = new PathSegmentCollection
+                {
+                    new QuadraticBezierSegment
+                    {
+                        Point1 = new Point(TopPath.Width / 2, -TopPath.Height / 2),
+                        Point2 = new Point(TopPath.Width, 0)
+                    }
+                }
+            }
+        });
+            }
         }
 
-        private void UpdateVerticalPath(object sender, SizeChangedEventArgs e)
+        private void LeftTextPanel_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            // Aktualizuje lewą linię (nawias) dla pól tekstowych jedno pod drugim
-            var path = (Path)((Grid)sender).Children[0];
-            double height = e.NewSize.Height - 20;
-            path.Data = Geometry.Parse(string.Format(
-                System.Globalization.CultureInfo.InvariantCulture,
-                "M 0,10 C 0,10 -20,{0} 0,{1}",
-                height / 2, height + 10));
-        }
-
-
-        private void StackPanel_SizeChanged(object sender, SizeChangedEventArgs e)
-        {
-            // Sprawdzamy, czy LeftTextPanel jest przypisany, zanim spróbujemy uzyskać jego wysokość.
             if (LeftTextPanel != null && LeftPath != null)
             {
-                // Ustawiamy wysokość LeftPath na wysokość LeftTextPanel
+                // Ustawienie wysokości LeftPath na wysokość LeftTextPanel
                 LeftPath.Height = LeftTextPanel.ActualHeight;
 
-                // Szerokość LeftPath może być ustawiona na jakąś stałą wartość lub na podstawie szerokości LeftTextPanel.
-                // Na przykład tutaj używamy połowy szerokości LeftTextPanel.
+                // Ustawienie szerokości LeftPath na szerokość LeftTextPanel
                 LeftPath.Width = LeftTextPanel.ActualWidth / 2;
 
                 // Dostosowanie danych geometrycznych Path, aby linia była skalowana poprawnie
@@ -100,7 +102,6 @@ namespace ProjektMASI
                 StartPoint = new Point(0, 0),
                 Segments = new PathSegmentCollection
                 {
-                    // Dopasowanie parametrów krzywej, aby obejmowała tekst
                     new QuadraticBezierSegment
                     {
                         Point1 = new Point(LeftPath.Width / 2, -LeftPath.Height / 2),
@@ -111,5 +112,9 @@ namespace ProjektMASI
         });
             }
         }
+
+
+
+        //koniec klasy 
     }
 }

@@ -95,23 +95,17 @@
 
             <ScrollViewer Grid.Column="1" Background="#2D2D30" Margin="10">
                 <StackPanel x:Name="MainContent" VerticalAlignment="Stretch">
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+                    <StackPanel HorizontalAlignment="Center" Margin="10,30,10,10">
                         <!-- Górne pola tekstowe z zakrzywioną linią -->
-                        <Grid>
-                            <Path x:Name="TopPath" Stroke="White" StrokeThickness="1.5" Stretch="Fill" VerticalAlignment="Top">
-                                <Path.Data>
-                                    <PathGeometry>
-                                        <PathFigure StartPoint="0,0" IsClosed="False">
-                                            <QuadraticBezierSegment Point1="95,-20" Point2="190,0"/>
-                                        </PathFigure>
-                                    </PathGeometry>
-                                </Path.Data>
-                            </Path>
-                            <StackPanel x:Name="TopTextPanel" Orientation="Horizontal" Margin="10,10,10,0" SizeChanged="StackPanel_SizeChanged">
-                                <TextBox Width="100" MaxLength="50" TextChanged="TextBox_TextChanged"/>
-                                <TextBox Width="100" MaxLength="50" TextChanged="TextBox_TextChanged"/>
-                            </StackPanel>
-                        </Grid>
+                        <Path x:Name="TopPath" Stroke="White" StrokeThickness="1.5" Stretch="Fill" Width="220" Height="10">
+                            <Path.Data>
+                                <PathGeometry Figures="M0,0 Q95,-20 190,0"/>
+                            </Path.Data>
+                        </Path>
+                        <StackPanel x:Name="TopTextPanel" Orientation="Horizontal" Margin="10,10,10,0" HorizontalAlignment="Left" SizeChanged="TopTextPanel_SizeChanged">
+                            <TextBox Width="100" MaxLength="50" TextChanged="TextBox_TextChanged"/>
+                            <TextBox Width="100" MaxLength="50" TextChanged="TextBox_TextChanged"/>
+                        </StackPanel>
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="10">
@@ -140,7 +134,7 @@
                                 <Binding ElementName="LeftTextPanel" Path="ActualHeight"/>
                             </Path.Height>
                         </Path>
-                        <StackPanel x:Name="LeftTextPanel" Orientation="Vertical" SizeChanged="StackPanel_SizeChanged" Height="36" Width="100">
+                        <StackPanel x:Name="LeftTextPanel" Orientation="Vertical" SizeChanged="LeftTextPanel_SizeChanged" Height="36" Width="100">
                             <TextBox Width="100" MaxLength="50" TextChanged="TextBox_TextChanged"/>
                             <TextBox Width="100" MaxLength="50" TextChanged="TextBox_TextChanged"/>
                         </StackPanel>
