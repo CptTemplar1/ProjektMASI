@@ -95,7 +95,56 @@
 
             <ScrollViewer Grid.Column="1" Background="#2D2D30" Margin="10">
                 <StackPanel x:Name="MainContent" VerticalAlignment="Stretch">
-                    <TextBlock Text="Tutaj będą wyświetlane dane." FontSize="16" Foreground="White" Margin="10"/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+                        <!-- Górne pola tekstowe z zakrzywioną linią -->
+                        <Grid>
+                            <Path x:Name="TopPath" Stroke="White" StrokeThickness="1.5" Stretch="Fill" VerticalAlignment="Top">
+                                <Path.Data>
+                                    <PathGeometry>
+                                        <PathFigure StartPoint="0,0" IsClosed="False">
+                                            <QuadraticBezierSegment Point1="95,-20" Point2="190,0"/>
+                                        </PathFigure>
+                                    </PathGeometry>
+                                </Path.Data>
+                            </Path>
+                            <StackPanel x:Name="TopTextPanel" Orientation="Horizontal" Margin="10,10,10,0" SizeChanged="StackPanel_SizeChanged">
+                                <TextBox Width="100" MaxLength="50" TextChanged="TextBox_TextChanged"/>
+                                <TextBox Width="100" MaxLength="50" TextChanged="TextBox_TextChanged"/>
+                            </StackPanel>
+                        </Grid>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="10">
+                        <!-- Lewe pola tekstowe z zakrzywioną linią -->
+                        <Path x:Name="LeftPath" Stroke="White" StrokeThickness="1.5" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                            <Path.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="-90"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Path.RenderTransform>
+                            <Path.Data>
+                                <PathGeometry>
+                                    <PathFigure StartPoint="0,0" IsClosed="False">
+                                        <!-- Dopasowanie punktów w zależności od wymiarów LeftTextPanel -->
+                                        <QuadraticBezierSegment Point1="0,50" Point2="0,100"/>
+                                    </PathFigure>
+                                </PathGeometry>
+                            </Path.Data>
+                            <Path.Width>
+                                <Binding ElementName="LeftTextPanel" Path="ActualWidth"/>
+                            </Path.Width>
+                            <Path.Height>
+                                <Binding ElementName="LeftTextPanel" Path="ActualHeight"/>
+                            </Path.Height>
+                        </Path>
+                        <StackPanel x:Name="LeftTextPanel" Orientation="Vertical" SizeChanged="StackPanel_SizeChanged" Height="36" Width="100">
+                            <TextBox Width="100" MaxLength="50" TextChanged="TextBox_TextChanged"/>
+                            <TextBox Width="100" MaxLength="50" TextChanged="TextBox_TextChanged"/>
+                        </StackPanel>
+                    </StackPanel>
                 </StackPanel>
             </ScrollViewer>
         </Grid>
