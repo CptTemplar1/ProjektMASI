@@ -156,6 +156,10 @@ namespace ProjektMASI
                 double scale = e.NewValue;
                 MainContentScaleTransform.ScaleX = scale;
                 MainContentScaleTransform.ScaleY = scale;
+
+                // Usuń ustawianie szerokości i wysokości kontenera
+                MainContent.Width = MainGrid.ActualWidth * scale;
+                MainContent.Height = MainGrid.ActualHeight * scale;
             }
         }
 
