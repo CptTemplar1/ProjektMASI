@@ -19,6 +19,9 @@ namespace ProjektMASI
         public MainWindow()
         {
             InitializeComponent();
+
+            // Przypisujemy obsługę zdarzenia ValueChanged po inicjalizacji komponentów
+            ScaleSlider.ValueChanged += ScaleSlider_ValueChanged;
         }
 
         private void RadioButton_Checked(object sender, RoutedEventArgs e)
@@ -143,6 +146,19 @@ namespace ProjektMASI
                 }
             }
         }
+
+        //Metoda skalująca wielkość głównego okna za pomocą Slidera
+        private void ScaleSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            // Sprawdzamy, czy MainContentScaleTransform został zainicjalizowany
+            if (MainContentScaleTransform != null)
+            {
+                double scale = e.NewValue;
+                MainContentScaleTransform.ScaleX = scale;
+                MainContentScaleTransform.ScaleY = scale;
+            }
+        }
+
 
 
 

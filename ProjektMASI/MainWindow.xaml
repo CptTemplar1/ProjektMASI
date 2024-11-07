@@ -88,13 +88,19 @@
                 <Button Content="ZAMIEŃ" Margin="10" Background="#007ACC" Foreground="White"/>
                 <Button Content="COFNIJ" Background="#007ACC" Foreground="White" Margin="10,10,10,10" Click="Button_Click_1"/>
                 <TextBlock FontSize="14" Foreground="LightGray" Text="Skalowanie unitermów" HorizontalAlignment="Center"/>
-                <Slider Width="120"/>
+                <Slider x:Name="ScaleSlider" Width="180" Minimum="0.5" Maximum="2.0" Value="1.0" ValueChanged="ScaleSlider_ValueChanged" HorizontalAlignment="Center"/>
                 <Button Content="WYCZYŚĆ POLA" Margin="10" Background="#007ACC" Foreground="White" Click="ClearFieldsButton_Click"/>
                 <ToggleButton x:Name="ToggleButton" Width="80" Height="40" Style="{StaticResource ToggleSwitchStyle}" />
             </StackPanel>
 
             <ScrollViewer Grid.Column="1" Background="#2D2D30" Margin="10" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-                <StackPanel x:Name="MainContent" VerticalAlignment="Stretch">
+                <StackPanel x:Name="MainContent" VerticalAlignment="Stretch" RenderTransformOrigin="0,0">
+                    
+                    <!-- Skalowanie głównego okna -->
+                    <StackPanel.RenderTransform>
+                        <ScaleTransform x:Name="MainContentScaleTransform" ScaleX="1" ScaleY="1"/>
+                    </StackPanel.RenderTransform>
+
                     <StackPanel HorizontalAlignment="Left" Margin="10,10,10,10">
                         <!-- Górne pola tekstowe z zakrzywioną linią -->
                         <Path x:Name="TopPath" Stroke="White" StrokeThickness="3" Stretch="Fill" Width="220" Height="10">
