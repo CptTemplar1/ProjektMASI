@@ -95,10 +95,10 @@
 
             <ScrollViewer Grid.Column="1" Background="#2D2D30" Margin="10" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
                 <StackPanel x:Name="MainContentWindow" VerticalAlignment="Stretch">
-                    <StackPanel x:Name="Content" VerticalAlignment="Stretch" RenderTransformOrigin="0,0">
+                    <StackPanel x:Name="MainContent" VerticalAlignment="Stretch" RenderTransformOrigin="0,0">
                         <!-- Skalowanie głównego okna -->
                         <StackPanel.RenderTransform>
-                            <ScaleTransform x:Name="ContentScaleTransform" ScaleX="1" ScaleY="1"/>
+                            <ScaleTransform x:Name="MainContentScaleTransform" ScaleX="1" ScaleY="1"/>
                         </StackPanel.RenderTransform>
 
                         <StackPanel HorizontalAlignment="Left" Margin="10,10,10,10">

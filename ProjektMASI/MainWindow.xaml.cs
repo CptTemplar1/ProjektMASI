@@ -122,11 +122,11 @@ namespace ProjektMASI
             }
         }
 
-        //Wyczyść wszystkie pola tekstowe w kontenerze Content
+        //Wyczyść wszystkie pola tekstowe w kontenerze MainContent
         private void ClearFieldsButton_Click(object sender, RoutedEventArgs e)
         {
-            // Wywołujemy metodę czyszczenia dla Content
-            ClearTextFields(Content);
+            // Wywołujemy metodę czyszczenia dla MainContent
+            ClearTextFields(MainContent);
         }
 
         private void ClearTextFields(Panel container)
@@ -150,12 +150,12 @@ namespace ProjektMASI
         //Metoda skalująca wielkość głównego okna za pomocą Slidera
         private void ScaleSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            // Sprawdzamy, czy ContentScaleTransform został zainicjalizowany
-            if (ContentScaleTransform != null)
+            // Sprawdzamy, czy MainContentScaleTransform został zainicjalizowany
+            if (MainContentScaleTransform != null)
             {
                 double scale = e.NewValue;
-                ContentScaleTransform.ScaleX = scale;
-                ContentScaleTransform.ScaleY = scale;
+                MainContentScaleTransform.ScaleX = scale;
+                MainContentScaleTransform.ScaleY = scale;
             }
         }
 
