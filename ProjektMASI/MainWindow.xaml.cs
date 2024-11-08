@@ -186,43 +186,59 @@ namespace ProjektMASI
         }
 
 
+        // Metoda sprawdzająca, czy wszystkie pola tekstowe są wypełnione
+        private bool AreAllFieldsFilled()
+        {
+            return !string.IsNullOrWhiteSpace(HUValue1TextField.Text) &&
+                   !string.IsNullOrWhiteSpace(HUValue2TextField.Text) &&
+                   !string.IsNullOrWhiteSpace(VUValue1TextField.Text) &&
+                   !string.IsNullOrWhiteSpace(VUValue2TextField.Text);
+        }
+
         // Metoda zamieniająca miejscami unitermy
         private void SwapElements(object sender, RoutedEventArgs e)
-        {
-            bool isLeftSelected = LeftRadioButton.IsChecked ?? false;
+            {
+                // Sprawdzenie, czy wszystkie pola tekstowe są wypełnione
+                if (!AreAllFieldsFilled())
+                {
+                    MessageBox.Show("Wszystkie pola tekstowe muszą być wypełnione przed wykonaniem zamiany!", "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
 
-            // Określenie elementów źródłowych i docelowych
-            var sourcePanel = isLeftSelected ? HUValue1TextField : HUValue2TextField;
-            var targetPanel = VerticalUniterm;
+                bool isLeftSelected = LeftRadioButton.IsChecked ?? false;
 
-            var sourceParent = (Panel)sourcePanel.Parent;
-            var targetParent = (Panel)targetPanel.Parent;
+                // Określenie elementów źródłowych i docelowych
+                var sourcePanel = isLeftSelected ? HUValue1TextField : HUValue2TextField;
+                var targetPanel = VerticalUniterm;
 
-            // Przeniesienie elementów
-            sourceParent.Children.Remove(sourcePanel);
-            targetParent.Children.Remove(targetPanel);
+                var sourceParent = (Panel)sourcePanel.Parent;
+                var targetParent = (Panel)targetPanel.Parent;
 
-            sourceParent.Children.Add(targetPanel);
-            targetParent.Children.Add(sourcePanel);
+                // Przeniesienie elementów
+                sourceParent.Children.Remove(sourcePanel);
+                targetParent.Children.Remove(targetPanel);
 
-            // Zmiana stanu przycisków
-            SwapButton.IsEnabled = false;
-            UndoButton.IsEnabled = true;
+                sourceParent.Children.Add(targetPanel);
+                targetParent.Children.Add(sourcePanel);
 
-            // Wyłączenie widoczności panelu tekstowego
-            sourcePanel.Visibility = Visibility.Hidden;
+                // Zmiana stanu przycisków
+                SwapButton.IsEnabled = false;
+                UndoButton.IsEnabled = true;
+
+                // Wyłączenie widoczności panelu tekstowego
+                sourcePanel.Visibility = Visibility.Hidden;
+            }
+
+            // Cofnięcie zamiany
+            private void UndoButton_Click(object sender, RoutedEventArgs e)
+            {
+                // Implementacja cofnięcia zmian (odwrócenie operacji zamiany)
+                SwapButton.IsEnabled = true;
+                UndoButton.IsEnabled = false;
+            }
+
+
+
+            //koniec klasy 
         }
-
-        // Cofnięcie zamiany
-        private void UndoButton_Click(object sender, RoutedEventArgs e)
-        {
-            // Implementacja cofnięcia zmian (odwrócenie operacji zamiany)
-            SwapButton.IsEnabled = true;
-            UndoButton.IsEnabled = false;
-        }
-
-
-
-        //koniec klasy 
     }
-}

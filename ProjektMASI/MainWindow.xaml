@@ -101,9 +101,9 @@
                                     </Path.Data>
                                 </Path>
                                 <StackPanel x:Name="VUTextPanel" Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Center" SizeChanged="VUTextPanel_SizeChanged" Margin="-10,0,10,0">
-                                    <TextBox MinWidth="50" MaxLength="50" TextChanged="TextBox_TextChanged" HorizontalAlignment="Left" TextAlignment="Left" Margin="0,0,0,5" Background="Transparent" BorderBrush="White" BorderThickness="1.5" Foreground="White" FontWeight="Bold" CaretBrush="White"/>
+                                    <TextBox x:Name="VUValue1TextField" MinWidth="50" MaxLength="50" TextChanged="TextBox_TextChanged" HorizontalAlignment="Left" TextAlignment="Left" Margin="0,0,0,5" Background="Transparent" BorderBrush="White" BorderThickness="1.5" Foreground="White" FontWeight="Bold" CaretBrush="White"/>
                                     <TextBlock Text=";" VerticalAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="16"/>
-                                    <TextBox MinWidth="50" MaxLength="50" TextChanged="TextBox_TextChanged" HorizontalAlignment="Left" TextAlignment="Left" Margin="0,5,0,0" Background="Transparent" BorderBrush="White" BorderThickness="1.5" Foreground="White" FontWeight="Bold" CaretBrush="White"/>
+                                    <TextBox x:Name="VUValue2TextField" MinWidth="50" MaxLength="50" TextChanged="TextBox_TextChanged" HorizontalAlignment="Left" TextAlignment="Left" Margin="0,5,0,0" Background="Transparent" BorderBrush="White" BorderThickness="1.5" Foreground="White" FontWeight="Bold" CaretBrush="White"/>
                                 </StackPanel>
                             </StackPanel>
                         </StackPanel>
