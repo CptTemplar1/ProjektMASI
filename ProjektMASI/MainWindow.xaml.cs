@@ -67,12 +67,12 @@ namespace ProjektMASI
 
 
 
-        private void TopTextPanel_SizeChanged(object sender, SizeChangedEventArgs e)
+        private void HUTextPanel_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            if (TopTextPanel != null && TopPath != null)
+            if (HUTextPanel != null && TopPath != null)
             {
-                // Ustawienie szerokości TopPath na szerokość TopTextPanel
-                TopPath.Width = TopTextPanel.ActualWidth;
+                // Ustawienie szerokości TopPath na szerokość HUTextPanel
+                TopPath.Width = HUTextPanel.ActualWidth;
 
                 // Dostosowanie danych geometrycznych Path, aby linia była skalowana poprawnie
                 TopPath.Data = new PathGeometry(new PathFigureCollection
@@ -93,15 +93,15 @@ namespace ProjektMASI
             }
         }
 
-        private void LeftTextPanel_SizeChanged(object sender, SizeChangedEventArgs e)
+        private void VUTextPanel_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            if (LeftTextPanel != null && LeftPath != null)
+            if (VUTextPanel != null && LeftPath != null)
             {
-                // Ustawienie wysokości LeftPath na wysokość LeftTextPanel
-                //LeftPath.Height = LeftTextPanel.ActualHeight / 2; //modyfikacja wysokości jest niepotrzebna, bo wtedy robi się za bardzo wypukła linia
+                // Ustawienie wysokości LeftPath na wysokość VUTextPanel
+                //LeftPath.Height = VUTextPanel.ActualHeight / 2; //modyfikacja wysokości jest niepotrzebna, bo wtedy robi się za bardzo wypukła linia
 
-                // Ustawienie szerokości LeftPath na szerokość LeftTextPanel
-                LeftPath.Width = LeftTextPanel.ActualHeight;
+                // Ustawienie szerokości LeftPath na szerokość VUTextPanel
+                LeftPath.Width = VUTextPanel.ActualHeight;
 
                 // Dostosowanie danych geometrycznych Path, aby linia była skalowana poprawnie
                 LeftPath.Data = new PathGeometry(new PathFigureCollection

@@ -7,56 +7,7 @@
         MinWidth="800" MinHeight="450"
         Background="#1E1E1E">
     <Window.Resources>
-        <Style x:Key="ToggleSwitchStyle" TargetType="ToggleButton">
-            <Setter Property="Background" Value="#DDDDDD"/>
-            <Setter Property="BorderBrush" Value="#888888"/>
-            <Setter Property="BorderThickness" Value="1"/>
-            <Setter Property="Padding" Value="0"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="ToggleButton">
-                        <Grid>
-                            <Border x:Name="SwitchBorder" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="15">
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="*"/>
-                                    </Grid.ColumnDefinitions>
-                                    <TextBlock Text="A" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" FontWeight="Bold"/>
-                                    <TextBlock Text="B" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Foreground="Black" FontWeight="Bold"/>
-                                </Grid>
-                            </Border>
-                            <Ellipse x:Name="ToggleCircle" Fill="White" Width="30" Height="30" VerticalAlignment="Center" 
-                                     HorizontalAlignment="Left" RenderTransformOrigin="0.5,0.5">
-                                <Ellipse.RenderTransform>
-                                    <TranslateTransform x:Name="ToggleTransform"/>
-                                </Ellipse.RenderTransform>
-                            </Ellipse>
-                        </Grid>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsChecked" Value="True">
-                                <Setter TargetName="ToggleCircle" Property="RenderTransform">
-                                    <Setter.Value>
-                                        <TranslateTransform X="30" />
-                                    </Setter.Value>
-                                </Setter>
-                                <Setter TargetName="SwitchBorder" Property="Background" Value="#007ACC"/>
-                                <Setter TargetName="SwitchBorder" Property="BorderBrush" Value="#005B99"/>
-                            </Trigger>
-                            <Trigger Property="IsChecked" Value="False">
-                                <Setter TargetName="ToggleCircle" Property="RenderTransform">
-                                    <Setter.Value>
-                                        <TranslateTransform X="0" />
-                                    </Setter.Value>
-                                </Setter>
-                                <Setter TargetName="SwitchBorder" Property="Background" Value="#DDDDDD"/>
-                                <Setter TargetName="SwitchBorder" Property="BorderBrush" Value="#888888"/>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
+        <!-- Miejsce na style  -->
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -65,7 +16,7 @@
         </Grid.RowDefinitions>
 
         <Grid x:Name="TopPanel" Background="#333333" Height="100" Grid.Row="0">
-            <StackPanel>
+            <StackPanel Margin="10,10,10,10">
                 <TextBlock Text="Zasada działania programu" FontSize="16" FontWeight="Bold" Foreground="White"/>
                 <TextBlock Text="Krótka instrukcja postępowania:" FontSize="14" Foreground="LightGray"/>
                 <TextBlock Text="1. Użyj menu po lewej stronie, aby nawigować." FontSize="12" Foreground="LightGray"/>
@@ -80,41 +31,46 @@
             </Grid.ColumnDefinitions>
 
             <StackPanel x:Name="SideMenu" Background="#252526" Width="200" VerticalAlignment="Stretch">
-                <TextBlock FontSize="14" Foreground="LightGray" HorizontalAlignment="Center"><Run Language="pl-pl" Text="Za którą pozycję zamienić"/></TextBlock>
+                <TextBlock FontSize="14" Foreground="LightGray" HorizontalAlignment="Center" FontWeight="Bold" Margin="0,10,0,5" Text="ZAMIEŃ ZA ELEMENT:"/>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <RadioButton Content="A" Checked="RadioButton_Checked" IsChecked="True"/>
-                    <RadioButton Content="B"/>
+                    <RadioButton x:Name="LeftRadioButton" Content="LEWY" Checked="RadioButton_Checked" IsChecked="True" Margin="0,0,10,0" FontWeight="Bold" Foreground="White"/>
+                    <RadioButton x:Name="RightRadioButton" Content="PRAWY" Margin="10,0,0,0" FontWeight="Bold" Foreground="White"/>
                 </StackPanel>
-                <Button Content="ZAMIEŃ" Margin="10" Background="#007ACC" Foreground="White"/>
-                <Button Content="COFNIJ" Background="#007ACC" Foreground="White" Margin="10,10,10,10" Click="Button_Click_1"/>
-                <TextBlock FontSize="14" Foreground="LightGray" Text="Skalowanie unitermów" HorizontalAlignment="Center"/>
+                <Button Content="ZAMIEŃ" Margin="10" Background="#007ACC" Foreground="White" FontWeight="Bold"/>
+                <Button Content="COFNIJ" Background="#007ACC" Foreground="White" Margin="10,10,10,20" Click="Button_Click_1" FontWeight="Bold"/>
+                <TextBlock FontSize="14" Foreground="LightGray" HorizontalAlignment="Center" FontWeight="Bold" Margin="0,0,0,5"><Run Text="SKALUJ "/><Run Language="pl-pl" Text="ROZMIAR"/></TextBlock>
                 <Slider x:Name="ScaleSlider" Width="180" Minimum="1" Maximum="3.0" Value="1.0" ValueChanged="ScaleSlider_ValueChanged" HorizontalAlignment="Center"/>
-                <Button Content="WYCZYŚĆ POLA" Margin="10" Background="#007ACC" Foreground="White" Click="ClearFieldsButton_Click"/>
-                <ToggleButton x:Name="ToggleButton" Width="80" Height="40" Style="{StaticResource ToggleSwitchStyle}" />
+                <Button Content="WYCZYŚĆ POLA" Margin="10,20,10,10" Background="#007ACC" Foreground="White" Click="ClearFieldsButton_Click" FontWeight="Bold"/>
+                <Button Content="RESET" Background="#007ACC" Foreground="White" Click="ClearFieldsButton_Click" Margin="10,10,10,10" FontWeight="Bold"/>
             </StackPanel>
 
             <ScrollViewer Grid.Column="1" Background="#2D2D30" Margin="10" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
                 <StackPanel x:Name="MainContentWindow" VerticalAlignment="Stretch">
-                    <StackPanel x:Name="MainContent" VerticalAlignment="Stretch" RenderTransformOrigin="0,0">
+                    <StackPanel x:Name="MainContent" VerticalAlignment="Stretch" RenderTransformOrigin="0,0" HorizontalAlignment="Left">
                         <!-- Skalowanie głównego okna -->
                         <StackPanel.RenderTransform>
                             <ScaleTransform x:Name="MainContentScaleTransform" ScaleX="1" ScaleY="1"/>
                         </StackPanel.RenderTransform>
 
-                        <StackPanel HorizontalAlignment="Left" Margin="10,10,10,10">
+                        <StackPanel x:Name="HorizontalUniterm" HorizontalAlignment="Left" Margin="10,10,10,10">
                             <!-- Górne pola tekstowe z zakrzywioną linią -->
                             <Path x:Name="TopPath" Stroke="White" StrokeThickness="3" Stretch="Fill" Width="220" Height="10">
                                 <Path.Data>
                                     <PathGeometry Figures="M0,0 Q95,-20 190,0"/>
                                 </Path.Data>
                             </Path>
-                            <StackPanel x:Name="TopTextPanel" Orientation="Horizontal" Margin="0,10,0,10" HorizontalAlignment="Center" SizeChanged="TopTextPanel_SizeChanged" VerticalAlignment="Center">
-                                <TextBox MinWidth="100" MaxLength="50" TextChanged="TextBox_TextChanged" TextAlignment="Center" Margin="0,0,10,0"/>
-                                <TextBox MinWidth="100" MaxLength="50" TextChanged="TextBox_TextChanged" TextAlignment="Center" Margin="10,0,0,0"/>
+                            <StackPanel x:Name="HUTextPanel" Orientation="Horizontal" Margin="0,10,0,10" HorizontalAlignment="Center" SizeChanged="HUTextPanel_SizeChanged" VerticalAlignment="Center">
+                                <StackPanel x:Name="HUValue1" Margin="0,0,10,0">
+                                    <TextBox MinWidth="100" MaxLength="50" TextChanged="TextBox_TextChanged" TextAlignment="Center"/>
+                                </StackPanel>
+                                    
+                                <StackPanel x:Name="HUValue2" Margin="10,0,0,0">
+                                    <TextBox MinWidth="100" MaxLength="50" TextChanged="TextBox_TextChanged" TextAlignment="Center"/>
+                                </StackPanel>
                             </StackPanel>
                         </StackPanel>
 
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="10">
+                        <StackPanel x:Name="VerticalUniterm" Orientation="Horizontal" HorizontalAlignment="Left" Margin="10">
                             <!-- Lewe pola tekstowe z zakrzywioną linią -->
                             <Path x:Name="LeftPath" Stroke="White" StrokeThickness="3" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Height="10" Width="30">
                                 <Path.RenderTransform>
@@ -129,7 +85,7 @@
                                     <PathGeometry Figures="M0,0 Q95,-20 190,0"/>
                                 </Path.Data>
                             </Path>
-                            <StackPanel x:Name="LeftTextPanel" Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Center" SizeChanged="LeftTextPanel_SizeChanged" Margin="-10,0,10,0">
+                            <StackPanel x:Name="VUTextPanel" Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Center" SizeChanged="VUTextPanel_SizeChanged" Margin="-10,0,10,0">
                                 <TextBox MinWidth="100" MaxLength="50" TextChanged="TextBox_TextChanged" HorizontalAlignment="Left" TextAlignment="Left" Margin="0,0,0,10"/>
                                 <TextBox MinWidth="100" MaxLength="50" TextChanged="TextBox_TextChanged" HorizontalAlignment="Left" TextAlignment="Left" Margin="0,10,0,0"/>
                             </StackPanel>
