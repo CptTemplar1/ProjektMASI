@@ -74,35 +74,37 @@
                                 </Path.Data>
                             </Path>
                             <StackPanel x:Name="HUTextPanel" Orientation="Horizontal" Margin="0,10,0,10" HorizontalAlignment="Center" SizeChanged="HUTextPanel_SizeChanged" VerticalAlignment="Center">
-                                <StackPanel x:Name="HUValue1" Margin="0,0,5,0">
-                                    <TextBox MinWidth="50" MaxLength="50" TextChanged="TextBox_TextChanged" TextAlignment="Center" Background="Transparent" BorderBrush="White" BorderThickness="1.5" Foreground="White" FontWeight="Bold" CaretBrush="White"/>
+                                <StackPanel Margin="0,0,5,0">
+                                    <TextBox x:Name="HUValue1TextField" MinWidth="50" MaxLength="50" TextChanged="TextBox_TextChanged" TextAlignment="Center" Background="Transparent" BorderBrush="White" BorderThickness="1.5" Foreground="White" FontWeight="Bold" CaretBrush="White"/>
                                 </StackPanel>
                                 <TextBlock Text=";" VerticalAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="16" Margin="5,0"/>
-                                <StackPanel x:Name="HUValue2" Margin="4,0,0,0">
-                                    <TextBox MinWidth="50" MaxLength="50" TextChanged="TextBox_TextChanged" TextAlignment="Center" Background="Transparent" BorderBrush="White" BorderThickness="1.5" Foreground="White" FontWeight="Bold" CaretBrush="White"/>
+                                <StackPanel Margin="4,0,0,0">
+                                    <TextBox x:Name="HUValue2TextField" MinWidth="50" MaxLength="50" TextChanged="TextBox_TextChanged" TextAlignment="Center" Background="Transparent" BorderBrush="White" BorderThickness="1.5" Foreground="White" FontWeight="Bold" CaretBrush="White"/>
                                 </StackPanel>
                             </StackPanel>
                         </StackPanel>
 
-                        <StackPanel x:Name="VerticalUniterm" Orientation="Horizontal" HorizontalAlignment="Left" Margin="10">
-                            <!-- Lewe pola tekstowe z zakrzywioną linią -->
-                            <Path x:Name="LeftPath" Stroke="White" StrokeThickness="3" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Height="15" Width="30">
-                                <Path.RenderTransform>
-                                    <TransformGroup>
-                                        <ScaleTransform/>
-                                        <SkewTransform/>
-                                        <RotateTransform Angle="-90"/>
-                                        <TranslateTransform/>
-                                    </TransformGroup>
-                                </Path.RenderTransform>
-                                <Path.Data>
-                                    <PathGeometry Figures="M0,0 Q95,-20 190,0"/>
-                                </Path.Data>
-                            </Path>
-                            <StackPanel x:Name="VUTextPanel" Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Center" SizeChanged="VUTextPanel_SizeChanged" Margin="-10,0,10,0">
-                                <TextBox MinWidth="50" MaxLength="50" TextChanged="TextBox_TextChanged" HorizontalAlignment="Left" TextAlignment="Left" Margin="0,0,0,5" Background="Transparent" BorderBrush="White" BorderThickness="1.5" Foreground="White" FontWeight="Bold" CaretBrush="White"/>
-                                <TextBlock Text=";" VerticalAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="16"/>
-                                <TextBox MinWidth="50" MaxLength="50" TextChanged="TextBox_TextChanged" HorizontalAlignment="Left" TextAlignment="Left" Margin="0,5,0,0" Background="Transparent" BorderBrush="White" BorderThickness="1.5" Foreground="White" FontWeight="Bold" CaretBrush="White"/>
+                        <StackPanel x:Name="VerticalUnitermContainer" Margin="-10,10,10,10" HorizontalAlignment="Left">
+                            <StackPanel x:Name="VerticalUniterm" Orientation="Horizontal" HorizontalAlignment="Left">
+                                <!-- Lewe pola tekstowe z zakrzywioną linią -->
+                                <Path x:Name="LeftPath" Stroke="White" StrokeThickness="3" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Height="15" Width="30">
+                                    <Path.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform/>
+                                            <RotateTransform Angle="-90"/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Path.RenderTransform>
+                                    <Path.Data>
+                                        <PathGeometry Figures="M0,0 Q95,-20 190,0"/>
+                                    </Path.Data>
+                                </Path>
+                                <StackPanel x:Name="VUTextPanel" Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Center" SizeChanged="VUTextPanel_SizeChanged" Margin="-10,0,10,0">
+                                    <TextBox MinWidth="50" MaxLength="50" TextChanged="TextBox_TextChanged" HorizontalAlignment="Left" TextAlignment="Left" Margin="0,0,0,5" Background="Transparent" BorderBrush="White" BorderThickness="1.5" Foreground="White" FontWeight="Bold" CaretBrush="White"/>
+                                    <TextBlock Text=";" VerticalAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="16"/>
+                                    <TextBox MinWidth="50" MaxLength="50" TextChanged="TextBox_TextChanged" HorizontalAlignment="Left" TextAlignment="Left" Margin="0,5,0,0" Background="Transparent" BorderBrush="White" BorderThickness="1.5" Foreground="White" FontWeight="Bold" CaretBrush="White"/>
+                                </StackPanel>
                             </StackPanel>
                         </StackPanel>
                     </StackPanel>
