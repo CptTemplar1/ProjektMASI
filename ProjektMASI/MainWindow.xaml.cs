@@ -16,6 +16,8 @@ namespace ProjektMASI
     /// </summary>
     public partial class MainWindow : Window
     {
+        private bool isSwapped = false; //zmienna określająca czy aktualnie unitermy są zamienione
+        
         public MainWindow()
         {
             InitializeComponent();
@@ -195,50 +197,107 @@ namespace ProjektMASI
                    !string.IsNullOrWhiteSpace(VUValue2TextField.Text);
         }
 
+        // Metoda blokująca/odblokowująca edytowanie pól tekstowych na podstawie tego, czy wszystkie pola są wypełnione
+        private void ToggleTextFields(bool enable)
+        {
+            // Włączenie/wyłączenie edytowania pól tekstowych
+            HUValue1TextField.IsEnabled = enable;
+            HUValue2TextField.IsEnabled = enable;
+            VUValue1TextField.IsEnabled = enable;
+            VUValue2TextField.IsEnabled = enable;
+        }
+
         // Metoda zamieniająca miejscami unitermy
         private void SwapElements(object sender, RoutedEventArgs e)
+        {
+            // Sprawdzenie, czy wszystkie pola tekstowe są wypełnione
+            if (!AreAllFieldsFilled())
             {
-                // Sprawdzenie, czy wszystkie pola tekstowe są wypełnione
-                if (!AreAllFieldsFilled())
+                MessageBox.Show("Wszystkie pola tekstowe muszą być wypełnione przed wykonaniem zamiany!", "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            bool isLeftSelected = LeftRadioButton.IsChecked ?? false;
+
+            // Określenie elementów źródłowych i docelowych
+            var sourcePanel = isLeftSelected ? HUValue1TextField : HUValue2TextField;
+            var targetPanel = VerticalUniterm;
+
+            var sourceParent = (Panel)sourcePanel.Parent;
+            var targetParent = (Panel)targetPanel.Parent;
+
+            // Przeniesienie elementów
+            sourceParent.Children.Remove(sourcePanel);
+            targetParent.Children.Remove(targetPanel);
+
+            sourceParent.Children.Add(targetPanel);
+            targetParent.Children.Add(sourcePanel);
+
+            // Rzutowanie sender na Button, ponieważ sender to obiekt, który wywołał metodę
+            Button clickedButton = sender as Button;
+
+            // Sprawdzamy, czy rzutowanie powiodło się
+            if (clickedButton != null)
+            {
+                // Uzyskujemy nazwę przycisku
+                string buttonName = clickedButton.Name;
+
+                // Wykonujemy odpowiednie ustawienia elementów ekranu w zależności od tego, któy przycisk był kliknięty
+                if(buttonName == "SwapButton")
                 {
-                    MessageBox.Show("Wszystkie pola tekstowe muszą być wypełnione przed wykonaniem zamiany!", "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
-                    return;
+                    isSwapped = true;
+
+                    SwapButton.IsEnabled = false;
+                    UndoButton.IsEnabled = true;
+
+                    LeftRadioButton.IsEnabled = false;
+                    RightRadioButton.IsEnabled = false;
+
+                    ClearFieldsButton.IsEnabled = false;
+
+                    sourcePanel.Visibility = Visibility.Hidden;
+
+                    ToggleTextFields(false);
                 }
+                else if(buttonName == "UndoButton" || buttonName == "ResetButton")
+                {
+                    isSwapped = false;
 
-                bool isLeftSelected = LeftRadioButton.IsChecked ?? false;
+                    SwapButton.IsEnabled = true;
+                    UndoButton.IsEnabled = false;
 
-                // Określenie elementów źródłowych i docelowych
-                var sourcePanel = isLeftSelected ? HUValue1TextField : HUValue2TextField;
-                var targetPanel = VerticalUniterm;
+                    LeftRadioButton.IsEnabled = true;
+                    RightRadioButton.IsEnabled = true;
 
-                var sourceParent = (Panel)sourcePanel.Parent;
-                var targetParent = (Panel)targetPanel.Parent;
+                    ClearFieldsButton.IsEnabled = true;
 
-                // Przeniesienie elementów
-                sourceParent.Children.Remove(sourcePanel);
-                targetParent.Children.Remove(targetPanel);
+                    sourcePanel.Visibility = Visibility.Visible;
 
-                sourceParent.Children.Add(targetPanel);
-                targetParent.Children.Add(sourcePanel);
-
-                // Zmiana stanu przycisków
-                SwapButton.IsEnabled = false;
-                UndoButton.IsEnabled = true;
-
-                // Wyłączenie widoczności panelu tekstowego
-                sourcePanel.Visibility = Visibility.Hidden;
+                    ToggleTextFields(true);
+                }
             }
-
-            // Cofnięcie zamiany
-            private void UndoButton_Click(object sender, RoutedEventArgs e)
-            {
-                // Implementacja cofnięcia zmian (odwrócenie operacji zamiany)
-                SwapButton.IsEnabled = true;
-                UndoButton.IsEnabled = false;
-            }
-
-
-
-            //koniec klasy 
         }
+
+
+        // Metoda obsługująca kliknięcie przycisku Reset
+        private void ResetButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Najpierw sprawdzamy stan zmiennej isSwapped
+            if (isSwapped)
+            {
+                // Jeśli elementy zostały zamienione, przywracamy je do pierwotnego stanu
+                SwapElements(sender, e);
+            }
+
+            // Wyczyść wszystkie pola tekstowe, niezależnie od stanu isSwapped
+            ClearTextFields(MainContent);
+
+            // Ustawienie wartości suwaka na początkową wartość
+            ScaleSlider.Value = 1.0;
+
+            isSwapped = false;
+        }
+
+        //koniec klasy 
     }
+}
