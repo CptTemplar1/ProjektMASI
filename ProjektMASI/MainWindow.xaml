@@ -33,11 +33,11 @@
             <StackPanel x:Name="SideMenu" Background="#252526" Width="200" VerticalAlignment="Stretch">
                 <TextBlock FontSize="14" Foreground="LightGray" HorizontalAlignment="Center" FontWeight="Bold" Margin="0,10,0,5" Text="ZAMIEŃ ZA ELEMENT:"/>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <RadioButton x:Name="LeftRadioButton" Content="LEWY" Checked="RadioButton_Checked" IsChecked="True" Margin="0,0,10,0" FontWeight="Bold" Foreground="White"/>
+                    <RadioButton x:Name="LeftRadioButton" Content="LEWY" IsChecked="True" Margin="0,0,10,0" FontWeight="Bold" Foreground="White"/>
                     <RadioButton x:Name="RightRadioButton" Content="PRAWY" Margin="10,0,0,0" FontWeight="Bold" Foreground="White"/>
                 </StackPanel>
                 <Button Content="ZAMIEŃ" Margin="10" Background="#007ACC" Foreground="White" FontWeight="Bold"/>
-                <Button Content="COFNIJ" Background="#007ACC" Foreground="White" Margin="10,10,10,20" Click="Button_Click_1" FontWeight="Bold"/>
+                <Button Content="COFNIJ" Background="#007ACC" Foreground="White" Margin="10,10,10,20" FontWeight="Bold"/>
                 <TextBlock FontSize="14" Foreground="LightGray" HorizontalAlignment="Center" FontWeight="Bold" Margin="0,0,0,5"><Run Text="SKALUJ "/><Run Language="pl-pl" Text="ROZMIAR"/></TextBlock>
                 <Slider x:Name="ScaleSlider" Width="180" Minimum="1" Maximum="3.0" Value="1.0" ValueChanged="ScaleSlider_ValueChanged" HorizontalAlignment="Center"/>
                 <Button Content="WYCZYŚĆ POLA" Margin="10,20,10,10" Background="#007ACC" Foreground="White" Click="ClearFieldsButton_Click" FontWeight="Bold"/>
