@@ -33,7 +33,7 @@ namespace ProjektMASI
             MainGrid.Visibility = Visibility.Collapsed;
 
             // Dopasowanie rozmiaru obrazu do okna, zachowanie proporcji
-            var maxWidth = this.ActualWidth; 
+            var maxWidth = this.ActualWidth;
             var maxHeight = this.ActualHeight;
             var image = PreviewOverlay.Children.OfType<Image>().FirstOrDefault();
             if (image != null)
@@ -185,6 +185,41 @@ namespace ProjektMASI
             }
         }
 
+
+        // Metoda zamieniająca miejscami unitermy
+        private void SwapElements(object sender, RoutedEventArgs e)
+        {
+            bool isLeftSelected = LeftRadioButton.IsChecked ?? false;
+
+            // Określenie elementów źródłowych i docelowych
+            var sourcePanel = isLeftSelected ? HUValue1TextField : HUValue2TextField;
+            var targetPanel = VerticalUniterm;
+
+            var sourceParent = (Panel)sourcePanel.Parent;
+            var targetParent = (Panel)targetPanel.Parent;
+
+            // Przeniesienie elementów
+            sourceParent.Children.Remove(sourcePanel);
+            targetParent.Children.Remove(targetPanel);
+
+            sourceParent.Children.Add(targetPanel);
+            targetParent.Children.Add(sourcePanel);
+
+            // Zmiana stanu przycisków
+            SwapButton.IsEnabled = false;
+            UndoButton.IsEnabled = true;
+
+            // Wyłączenie widoczności panelu tekstowego
+            sourcePanel.Visibility = Visibility.Hidden;
+        }
+
+        // Cofnięcie zamiany
+        private void UndoButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Implementacja cofnięcia zmian (odwrócenie operacji zamiany)
+            SwapButton.IsEnabled = true;
+            UndoButton.IsEnabled = false;
+        }
 
 
 

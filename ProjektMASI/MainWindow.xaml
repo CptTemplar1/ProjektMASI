@@ -50,8 +50,8 @@
                     <RadioButton x:Name="LeftRadioButton" Content="LEWY" IsChecked="True" Margin="0,0,10,0" FontWeight="Bold" Foreground="White"/>
                     <RadioButton x:Name="RightRadioButton" Content="PRAWY" Margin="10,0,0,0" FontWeight="Bold" Foreground="White"/>
                 </StackPanel>
-                <Button Content="ZAMIEŃ" Margin="10" Background="#007ACC" Foreground="White" FontWeight="Bold"/>
-                <Button Content="COFNIJ" Background="#007ACC" Foreground="White" Margin="10,10,10,20" FontWeight="Bold"/>
+                <Button x:Name="SwapButton" Content="ZAMIEŃ" Margin="10" Background="#007ACC" Foreground="White" FontWeight="Bold" Click="SwapElements"/>
+                <Button x:Name="UndoButton" Content="COFNIJ" Background="#007ACC" Foreground="White" Margin="10,10,10,20" FontWeight="Bold" Click="UndoButton_Click" IsEnabled="False"/>
                 <TextBlock FontSize="14" Foreground="LightGray" HorizontalAlignment="Center" FontWeight="Bold" Margin="0,0,0,5"><Run Text="SKALUJ "/><Run Language="pl-pl" Text="ROZMIAR"/></TextBlock>
                 <Slider x:Name="ScaleSlider" Width="180" Minimum="1" Maximum="3.0" Value="1.0" ValueChanged="ScaleSlider_ValueChanged" HorizontalAlignment="Center"/>
                 <Button Content="WYCZYŚĆ POLA" Margin="10,20,10,10" Background="#007ACC" Foreground="White" Click="ClearFieldsButton_Click" FontWeight="Bold"/>
@@ -77,7 +77,7 @@
                                 <StackPanel Margin="0,0,5,0">
                                     <TextBox x:Name="HUValue1TextField" MinWidth="50" MaxLength="50" TextChanged="TextBox_TextChanged" TextAlignment="Center" Background="Transparent" BorderBrush="White" BorderThickness="1.5" Foreground="White" FontWeight="Bold" CaretBrush="White"/>
                                 </StackPanel>
-                                <TextBlock Text=";" VerticalAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="16" Margin="5,0"/>
+                                <TextBlock Text=";" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="16" Margin="5,0"/>
                                 <StackPanel Margin="4,0,0,0">
                                     <TextBox x:Name="HUValue2TextField" MinWidth="50" MaxLength="50" TextChanged="TextBox_TextChanged" TextAlignment="Center" Background="Transparent" BorderBrush="White" BorderThickness="1.5" Foreground="White" FontWeight="Bold" CaretBrush="White"/>
                                 </StackPanel>
