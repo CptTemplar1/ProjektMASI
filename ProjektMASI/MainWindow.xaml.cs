@@ -24,6 +24,43 @@ namespace ProjektMASI
             ScaleSlider.ValueChanged += ScaleSlider_ValueChanged;
         }
 
+        //Metody obsługi wyświetlania zdjęcia diagramów w instrukcji
+        private void Icon_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            // Ustawia nakładkę jako widoczną i ukrywa inne elementy
+            PreviewOverlay.Visibility = Visibility.Visible;
+            TopPanel.Visibility = Visibility.Collapsed;
+            MainGrid.Visibility = Visibility.Collapsed;
+
+            // Dopasowanie rozmiaru obrazu do okna, zachowanie proporcji
+            var maxWidth = this.ActualWidth; 
+            var maxHeight = this.ActualHeight;
+            var image = PreviewOverlay.Children.OfType<Image>().FirstOrDefault();
+            if (image != null)
+            {
+                double aspectRatio = image.Source.Width / image.Source.Height;
+                if (maxWidth / maxHeight > aspectRatio)
+                {
+                    image.Width = maxHeight * aspectRatio;
+                    image.Height = maxHeight;
+                }
+                else
+                {
+                    image.Width = maxWidth;
+                    image.Height = maxWidth / aspectRatio;
+                }
+            }
+        }
+
+        private void Overlay_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            // Ukrywa nakładkę i przywraca widoczność pozostałych elementów
+            PreviewOverlay.Visibility = Visibility.Collapsed;
+            TopPanel.Visibility = Visibility.Visible;
+            MainGrid.Visibility = Visibility.Visible;
+        }
+
+
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (sender is TextBox textBox)

@@ -3,8 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        Title="MainWindow" Height="450" Width="800"
-        MinWidth="800" MinHeight="450"
+        Title="MainWindow" Height="460" Width="800"
+        MinWidth="800" MinHeight="460"
         Background="#1E1E1E">
     <Window.Resources>
         <!-- Miejsce na style  -->
@@ -15,13 +15,27 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Grid x:Name="TopPanel" Background="#333333" Height="100" Grid.Row="0">
-            <StackPanel Margin="10,10,10,10">
-                <TextBlock Text="Zasada działania programu" FontSize="16" FontWeight="Bold" Foreground="White"/>
-                <TextBlock Text="Krótka instrukcja postępowania:" FontSize="14" Foreground="LightGray"/>
-                <TextBlock Text="1. Użyj menu po lewej stronie, aby nawigować." FontSize="12" Foreground="LightGray"/>
-                <TextBlock Text="2. W głównej części okna edytuj dane." FontSize="12" Foreground="LightGray"/>
+        <!-- Nakładka podglądu obrazu -->
+        <Grid x:Name="PreviewOverlay" Background="Black" Opacity="0.8" Visibility="Collapsed" MouseDown="Overlay_MouseDown">
+            <Image Source="pack://application:,,,/Images/Diagram.png" Width="400" Height="400" MouseDown="Overlay_MouseDown"/>
+        </Grid>
+
+        <Grid x:Name="TopPanel" Background="#333333" Height="150" Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Margin="10,10,10,10" Cursor="">
+                <TextBlock FontSize="16" FontWeight="Bold" Foreground="White" Text="WITAJ UŻYTKOWNIKU" HorizontalAlignment="Center" Margin="0,0,0,5"/>
+                <TextBlock FontSize="14" TextWrapping="Wrap" Foreground="LightGray" Margin="0,0,0,5"><Run Text="Poniższy program służy do "/><Run Text="z"/><Run Text="mian"/><Run Text="y"/><Run Text=" unitermu POZIOMEJ operacji SEKWENCJONOWANIA unitermów na PIONOWĄ"/><Run Language="pl-pl" Text=" "/><Run Text="operację SEKWENCJONOWANIA unitermów."/><Run Text=" Operacje przeprowadzane są w głównej części ekranu."/></TextBlock>
+                <TextBlock FontSize="14" TextWrapping="Wrap" Foreground="LightGray" Margin="0,0,0,5"><Run Text="Po lewej stronie znajduj"/><Run Text="e"/><Run Text=" się "/><Run Text="MENU, służące do "/><Run Text="sterowania programem. Za pomocą poszczególnych przycisków możesz wybrać jaką czynność chcesz wykonać."/></TextBlock>
+                <TextBlock FontSize="14" TextWrapping="Wrap" Foreground="LightGray"><Run Language="pl-pl" Text="Możesz także kliknąć w ikonę po prawej stronie, aby wyśwwietlić wizualizację działania programu w postaci obrazu"/></TextBlock>
             </StackPanel>
+
+            <!-- Ikona, po której kliknięciu otworzy się podgląd -->
+            <Image Source="pack://application:,,,/Images/Icon.png" Width="50" Height="50" Cursor="Hand" MouseDown="Icon_MouseDown" 
+           VerticalAlignment="Center" Grid.Column="1"/>
         </Grid>
 
         <Grid x:Name="MainGrid" Grid.Row="1">
@@ -54,25 +68,25 @@
 
                         <StackPanel x:Name="HorizontalUniterm" HorizontalAlignment="Left" Margin="10,10,10,10">
                             <!-- Górne pola tekstowe z zakrzywioną linią -->
-                            <Path x:Name="TopPath" Stroke="White" StrokeThickness="3" Stretch="Fill" Width="220" Height="10">
+                            <Path x:Name="TopPath" Stroke="White" StrokeThickness="3" Stretch="Fill" Width="120" Height="15">
                                 <Path.Data>
                                     <PathGeometry Figures="M0,0 Q95,-20 190,0"/>
                                 </Path.Data>
                             </Path>
                             <StackPanel x:Name="HUTextPanel" Orientation="Horizontal" Margin="0,10,0,10" HorizontalAlignment="Center" SizeChanged="HUTextPanel_SizeChanged" VerticalAlignment="Center">
-                                <StackPanel x:Name="HUValue1" Margin="0,0,10,0">
-                                    <TextBox MinWidth="100" MaxLength="50" TextChanged="TextBox_TextChanged" TextAlignment="Center"/>
+                                <StackPanel x:Name="HUValue1" Margin="0,0,5,0">
+                                    <TextBox MinWidth="50" MaxLength="50" TextChanged="TextBox_TextChanged" TextAlignment="Center" Background="Transparent" BorderBrush="White" BorderThickness="1.5" Foreground="White" FontWeight="Bold" CaretBrush="White"/>
                                 </StackPanel>
-                                    
-                                <StackPanel x:Name="HUValue2" Margin="10,0,0,0">
-                                    <TextBox MinWidth="100" MaxLength="50" TextChanged="TextBox_TextChanged" TextAlignment="Center"/>
+                                <TextBlock Text=";" VerticalAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="16" Margin="5,0"/>
+                                <StackPanel x:Name="HUValue2" Margin="4,0,0,0">
+                                    <TextBox MinWidth="50" MaxLength="50" TextChanged="TextBox_TextChanged" TextAlignment="Center" Background="Transparent" BorderBrush="White" BorderThickness="1.5" Foreground="White" FontWeight="Bold" CaretBrush="White"/>
                                 </StackPanel>
                             </StackPanel>
                         </StackPanel>
 
                         <StackPanel x:Name="VerticalUniterm" Orientation="Horizontal" HorizontalAlignment="Left" Margin="10">
                             <!-- Lewe pola tekstowe z zakrzywioną linią -->
-                            <Path x:Name="LeftPath" Stroke="White" StrokeThickness="3" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Height="10" Width="30">
+                            <Path x:Name="LeftPath" Stroke="White" StrokeThickness="3" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Height="15" Width="30">
                                 <Path.RenderTransform>
                                     <TransformGroup>
                                         <ScaleTransform/>
@@ -86,8 +100,9 @@
                                 </Path.Data>
                             </Path>
                             <StackPanel x:Name="VUTextPanel" Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Center" SizeChanged="VUTextPanel_SizeChanged" Margin="-10,0,10,0">
-                                <TextBox MinWidth="100" MaxLength="50" TextChanged="TextBox_TextChanged" HorizontalAlignment="Left" TextAlignment="Left" Margin="0,0,0,10"/>
-                                <TextBox MinWidth="100" MaxLength="50" TextChanged="TextBox_TextChanged" HorizontalAlignment="Left" TextAlignment="Left" Margin="0,10,0,0"/>
+                                <TextBox MinWidth="50" MaxLength="50" TextChanged="TextBox_TextChanged" HorizontalAlignment="Left" TextAlignment="Left" Margin="0,0,0,5" Background="Transparent" BorderBrush="White" BorderThickness="1.5" Foreground="White" FontWeight="Bold" CaretBrush="White"/>
+                                <TextBlock Text=";" VerticalAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="16"/>
+                                <TextBox MinWidth="50" MaxLength="50" TextChanged="TextBox_TextChanged" HorizontalAlignment="Left" TextAlignment="Left" Margin="0,5,0,0" Background="Transparent" BorderBrush="White" BorderThickness="1.5" Foreground="White" FontWeight="Bold" CaretBrush="White"/>
                             </StackPanel>
                         </StackPanel>
                     </StackPanel>
