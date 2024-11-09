@@ -67,7 +67,7 @@
                         </StackPanel.RenderTransform>
 
                         <StackPanel x:Name="HorizontalUniterm" HorizontalAlignment="Left" Margin="10,10,10,10">
-                            <!-- Górne pola tekstowe z zakrzywioną linią -->
+                            <!-- Górne pola tekstowe z zakrzywioną linią unitermu poziomego -->
                             <Path x:Name="TopPath" Stroke="White" StrokeThickness="3" Stretch="Fill" Width="120" Height="15">
                                 <Path.Data>
                                     <PathGeometry Figures="M0,0 Q95,-20 190,0"/>
@@ -86,7 +86,7 @@
 
                         <StackPanel x:Name="VerticalUnitermContainer" Margin="-10,10,10,10" HorizontalAlignment="Left">
                             <StackPanel x:Name="VerticalUniterm" Orientation="Horizontal" HorizontalAlignment="Left">
-                                <!-- Lewe pola tekstowe z zakrzywioną linią -->
+                                <!-- Lewe pola tekstowe z zakrzywioną linią unitermu pionowego -->
                                 <Path x:Name="LeftPath" Stroke="White" StrokeThickness="3" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Height="15" Width="30">
                                     <Path.RenderTransform>
                                         <TransformGroup>

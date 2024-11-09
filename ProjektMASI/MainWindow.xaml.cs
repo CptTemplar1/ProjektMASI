@@ -16,17 +16,17 @@ namespace ProjektMASI
     /// </summary>
     public partial class MainWindow : Window
     {
-        private bool isSwapped = false; //zmienna określająca czy aktualnie unitermy są zamienione
+        private bool isSwapped = false; // zmienna określająca czy aktualnie unitermy są zamienione
         
         public MainWindow()
         {
             InitializeComponent();
 
-            // Przypisujemy obsługę zdarzenia ValueChanged po inicjalizacji komponentów
+            // Przypisujemy obsługę zdarzenia ValueChanged do suwaka ScaleSlider po inicjalizacji komponentów okna
             ScaleSlider.ValueChanged += ScaleSlider_ValueChanged;
         }
 
-        //Metody obsługi wyświetlania zdjęcia diagramów w instrukcji
+        // Metoda obsługująca kliknięcie ikony w górnym panelu wyświetlającej podgląd zdjęcia diagramu na cały ekran
         private void Icon_MouseDown(object sender, MouseButtonEventArgs e)
         {
             // Ustawia nakładkę jako widoczną i ukrywa inne elementy
@@ -54,6 +54,7 @@ namespace ProjektMASI
             }
         }
 
+        // Metoda obsługująca kliknięcie na nakładkę z podglądem zdjęcia diagramu, wyłaczająca podgląd
         private void Overlay_MouseDown(object sender, MouseButtonEventArgs e)
         {
             // Ukrywa nakładkę i przywraca widoczność pozostałych elementów
@@ -61,8 +62,10 @@ namespace ProjektMASI
             TopPanel.Visibility = Visibility.Visible;
             MainGrid.Visibility = Visibility.Visible;
         }
+        //############################################################################################################################################################################
 
 
+        // Metoda obsługująca zmianę szerokości pola tekstowego w zależności od długości wprowadzonego tekstu
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (sender is TextBox textBox)
@@ -88,9 +91,10 @@ namespace ProjektMASI
                 textBox.Width = Math.Max(newWidth, minWidth);
             }
         }
+        //############################################################################################################################################################################
 
 
-
+        // Metoda obsługująca dopasowanie wielkości lini unitermu poziomego w zależności od zmiany wielkości panelu tekstowego
         private void HUTextPanel_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             if (HUTextPanel != null && TopPath != null)
@@ -98,7 +102,7 @@ namespace ProjektMASI
                 // Ustawienie szerokości TopPath na szerokość HUTextPanel
                 TopPath.Width = HUTextPanel.ActualWidth;
 
-                // Dostosowanie danych geometrycznych Path, aby linia była skalowana poprawnie
+                // Dostosowanie danych geometrycznych Path
                 TopPath.Data = new PathGeometry(new PathFigureCollection
         {
             new PathFigure
@@ -117,17 +121,15 @@ namespace ProjektMASI
             }
         }
 
+        // Metoda obsługująca dopasowanie wielkości lini unitermu pionowego w zależności od zmiany wielkości panelu tekstowego
         private void VUTextPanel_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             if (VUTextPanel != null && LeftPath != null)
             {
-                // Ustawienie wysokości LeftPath na wysokość VUTextPanel
-                //LeftPath.Height = VUTextPanel.ActualHeight / 2; //modyfikacja wysokości jest niepotrzebna, bo wtedy robi się za bardzo wypukła linia
-
                 // Ustawienie szerokości LeftPath na szerokość VUTextPanel
                 LeftPath.Width = VUTextPanel.ActualHeight;
 
-                // Dostosowanie danych geometrycznych Path, aby linia była skalowana poprawnie
+                // Dostosowanie danych geometrycznych Path
                 LeftPath.Data = new PathGeometry(new PathFigureCollection
         {
             new PathFigure
@@ -145,14 +147,17 @@ namespace ProjektMASI
         });
             }
         }
+        //############################################################################################################################################################################
 
-        //Wyczyść wszystkie pola tekstowe w kontenerze MainContent
+
+        // Metoda obsługująca kliknięcie przycisku ClearFieldsButton
         private void ClearFieldsButton_Click(object sender, RoutedEventArgs e)
         {
             // Wywołujemy metodę czyszczenia dla MainContent
             ClearTextFields(MainContent);
         }
 
+        // Metoda rekurencyjnie czyści zawartość pól tekstowych w kontenerze określonym w parametrze
         private void ClearTextFields(Panel container)
         {
             // Iteracja po wszystkich dzieciach kontenera
@@ -170,8 +175,10 @@ namespace ProjektMASI
                 }
             }
         }
+        //############################################################################################################################################################################
 
-        //Metoda skalująca wielkość głównego okna za pomocą Slidera
+
+        // Metoda obsługująca slider, skalująca zawartość okna w zależności od wartości suwaka
         private void ScaleSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             // Sprawdzamy, czy MainContentScaleTransform został zainicjalizowany
@@ -186,6 +193,7 @@ namespace ProjektMASI
                 MainContent.Height = MainGrid.ActualHeight * scale;
             }
         }
+        //############################################################################################################################################################################
 
 
         // Metoda sprawdzająca, czy wszystkie pola tekstowe są wypełnione
@@ -206,6 +214,8 @@ namespace ProjektMASI
             VUValue1TextField.IsEnabled = enable;
             VUValue2TextField.IsEnabled = enable;
         }
+        //############################################################################################################################################################################
+
 
         // Metoda zamieniająca miejscami unitermy
         private void SwapElements(object sender, RoutedEventArgs e)
@@ -234,7 +244,7 @@ namespace ProjektMASI
             targetParent.Children.Add(sourcePanel);
 
             // Rzutowanie sender na Button, ponieważ sender to obiekt, który wywołał metodę
-            Button clickedButton = sender as Button;
+            Button? clickedButton = sender as Button;
 
             // Sprawdzamy, czy rzutowanie powiodło się
             if (clickedButton != null)
@@ -242,7 +252,7 @@ namespace ProjektMASI
                 // Uzyskujemy nazwę przycisku
                 string buttonName = clickedButton.Name;
 
-                // Wykonujemy odpowiednie ustawienia elementów ekranu w zależności od tego, któy przycisk był kliknięty
+                // Ustawiamy odpowiednie opcje dla pozostałych elementów ekranu w zależności od tego, któy przycisk był kliknięty
                 if(buttonName == "SwapButton")
                 {
                     isSwapped = true;
@@ -277,12 +287,13 @@ namespace ProjektMASI
                 }
             }
         }
+        //############################################################################################################################################################################
 
 
         // Metoda obsługująca kliknięcie przycisku Reset
         private void ResetButton_Click(object sender, RoutedEventArgs e)
         {
-            // Najpierw sprawdzamy stan zmiennej isSwapped
+            // Najpierw sprawdzamy stan zmiennej isSwapped, aby sprawdzić, czy elementy zostały zamienione
             if (isSwapped)
             {
                 // Jeśli elementy zostały zamienione, przywracamy je do pierwotnego stanu
@@ -297,7 +308,8 @@ namespace ProjektMASI
 
             isSwapped = false;
         }
+        //############################################################################################################################################################################
 
-        //koniec klasy 
-    }
+
+    }//Koniec klasy MainWindow
 }
