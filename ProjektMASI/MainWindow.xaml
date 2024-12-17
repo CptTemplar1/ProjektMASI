@@ -50,11 +50,11 @@
                     <RadioButton x:Name="LeftRadioButton" Content="LEWY" IsChecked="True" Margin="0,0,10,0" FontWeight="Bold" Foreground="White"/>
                     <RadioButton x:Name="RightRadioButton" Content="PRAWY" Margin="10,0,0,0" FontWeight="Bold" Foreground="White"/>
                 </StackPanel>
-                <Button x:Name="SwapButton" Content="ZAMIEŃ" Margin="10" Background="#007ACC" Foreground="White" FontWeight="Bold" Click="SwapElements"/>
-                <Button x:Name="UndoButton" Content="COFNIJ" Background="#007ACC" Foreground="White" Margin="10,10,10,20" FontWeight="Bold" Click="SwapElements" IsEnabled="False"/>
+                <Button x:Name="SwapButton" Content="ZAMIEŃ" Margin="10" Background="#007ACC" Foreground="White" FontWeight="Bold" Click="SwapUniterms"/>
+                <Button x:Name="UndoButton" Content="COFNIJ" Background="#007ACC" Foreground="White" Margin="10,10,10,20" FontWeight="Bold" Click="SwapUniterms" IsEnabled="False"/>
                 <TextBlock FontSize="14" Foreground="LightGray" HorizontalAlignment="Center" FontWeight="Bold" Margin="0,0,0,5"><Run Text="SKALUJ "/><Run Language="pl-pl" Text="ROZMIAR"/></TextBlock>
                 <Slider x:Name="ScaleSlider" Width="180" Minimum="1" Maximum="3.0" Value="1.0" ValueChanged="ScaleSlider_ValueChanged" HorizontalAlignment="Center"/>
-                <Button x:Name="ClearFieldsButton" Content="WYCZYŚĆ POLA" Margin="10,20,10,10" Background="#007ACC" Foreground="White" Click="ClearFieldsButton_Click" FontWeight="Bold"/>
+                <Button x:Name="ClearFieldsButton" Content="WYCZYŚĆ POLA" Margin="10,20,10,10" Background="#007ACC" Foreground="White" Click="ClearFieldsButton_Clicked" FontWeight="Bold"/>
                 <Button x:Name="ResetButton" Content="RESET" Background="#007ACC" Foreground="White" Click="ResetButton_Click" Margin="10,10,10,10" FontWeight="Bold"/>
             </StackPanel>
 
