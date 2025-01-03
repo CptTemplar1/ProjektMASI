@@ -1,0 +1,97 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:133.0) Gecko/20100101 Firefox/133.0" version="26.0.3">
+  <diagram name="Strona-1" id="PfZpxKHgtrNmZmKAbsyW">
+    <mxGraphModel dx="1235" dy="1835" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="4T6fihcZslr8NKoiapGG-1" value="" style="rounded=0;whiteSpace=wrap;html=1;hachureGap=4;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="260" y="-90" width="320" height="500" as="geometry" />
+        </mxCell>
+        <mxCell id="4T6fihcZslr8NKoiapGG-2" value="Użytkownik" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;hachureGap=4;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="200" y="100" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="4T6fihcZslr8NKoiapGG-8" value="Skalowanie rozmiaru całego okna programu" style="ellipse;whiteSpace=wrap;html=1;hachureGap=4;fontFamily=Times New Roman;fontSize=10;labelBackgroundColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="447" y="80" width="102" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="4T6fihcZslr8NKoiapGG-9" value="Wprowadzenie dwóch argumentów dla unitermu pionowej operacji sekwencjonowania" style="ellipse;whiteSpace=wrap;html=1;hachureGap=4;fontFamily=Times New Roman;fontSize=10;labelBackgroundColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="440" width="116" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="4T6fihcZslr8NKoiapGG-10" value="Wprowadzenie dwóch argumentów dla unitermu poziomej operacji sekwencjonowania" style="ellipse;whiteSpace=wrap;html=1;hachureGap=4;fontFamily=Times New Roman;fontSize=10;labelBackgroundColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="430" y="-80" width="121" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="4T6fihcZslr8NKoiapGG-11" value="Wyświetlenie instrukcji graficznej" style="ellipse;whiteSpace=wrap;html=1;hachureGap=4;fontFamily=Times New Roman;fontSize=10;labelBackgroundColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="330" y="-80" width="90" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="4T6fihcZslr8NKoiapGG-17" value="" style="endArrow=classic;html=1;rounded=0;hachureGap=4;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;labelBackgroundColor=none;dashed=1;strokeWidth=1;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="4T6fihcZslr8NKoiapGG-2" target="4T6fihcZslr8NKoiapGG-9">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="310" y="300" as="sourcePoint" />
+            <mxPoint x="360" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4T6fihcZslr8NKoiapGG-18" value="" style="endArrow=classic;html=1;rounded=0;hachureGap=4;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;labelBackgroundColor=none;dashed=1;strokeWidth=1;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="4T6fihcZslr8NKoiapGG-2" target="4T6fihcZslr8NKoiapGG-10">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="200" y="-50" as="sourcePoint" />
+            <mxPoint x="314" y="70" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4T6fihcZslr8NKoiapGG-21" value="" style="endArrow=classic;html=1;rounded=0;hachureGap=4;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;labelBackgroundColor=none;dashed=1;strokeWidth=1;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="4T6fihcZslr8NKoiapGG-2" target="4T6fihcZslr8NKoiapGG-11">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="210" y="130" as="sourcePoint" />
+            <mxPoint x="424" y="125" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4T6fihcZslr8NKoiapGG-23" value="" style="endArrow=classic;html=1;rounded=0;hachureGap=4;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;labelBackgroundColor=none;dashed=1;strokeWidth=1;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="4T6fihcZslr8NKoiapGG-2" target="4T6fihcZslr8NKoiapGG-8">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="220" y="250" as="sourcePoint" />
+            <mxPoint x="350" y="195" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4T6fihcZslr8NKoiapGG-37" value="Skalowanie rozmiaru unitermów" style="ellipse;whiteSpace=wrap;html=1;hachureGap=4;fontFamily=Times New Roman;fontSize=10;labelBackgroundColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="458" y="280" width="80" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="4T6fihcZslr8NKoiapGG-38" value="Wyczyszczenie pól tekstowych" style="ellipse;whiteSpace=wrap;html=1;hachureGap=4;fontFamily=Times New Roman;fontSize=10;labelBackgroundColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="453" y="350" width="90" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="4T6fihcZslr8NKoiapGG-39" value="Zresetowanie stanu unitermów do stanu początkowego" style="ellipse;whiteSpace=wrap;html=1;hachureGap=4;fontFamily=Times New Roman;fontSize=10;labelBackgroundColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="322" y="340" width="106" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="4T6fihcZslr8NKoiapGG-40" value="Zmiana unitermu poziomej operacji sekwencjonowania na pionową operację sekwencjonowania" style="ellipse;whiteSpace=wrap;html=1;hachureGap=4;fontFamily=Times New Roman;fontSize=10;labelBackgroundColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="420.5" y="140" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="4T6fihcZslr8NKoiapGG-42" value="Cofnięcie zmienionych unitermów do stanu sprzed operacji" style="ellipse;whiteSpace=wrap;html=1;hachureGap=4;fontFamily=Times New Roman;fontSize=10;labelBackgroundColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="435.5" y="220" width="125" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="4T6fihcZslr8NKoiapGG-43" value="" style="endArrow=classic;html=1;rounded=0;hachureGap=4;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;labelBackgroundColor=none;dashed=1;strokeWidth=1;" edge="1" parent="1" target="4T6fihcZslr8NKoiapGG-40">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="230" y="120" as="sourcePoint" />
+            <mxPoint x="361" y="157" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4T6fihcZslr8NKoiapGG-45" value="" style="endArrow=classic;html=1;rounded=0;hachureGap=4;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;labelBackgroundColor=none;dashed=1;strokeWidth=1;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="4T6fihcZslr8NKoiapGG-2" target="4T6fihcZslr8NKoiapGG-42">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="240" y="130" as="sourcePoint" />
+            <mxPoint x="368" y="283" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4T6fihcZslr8NKoiapGG-46" value="" style="endArrow=classic;html=1;rounded=0;hachureGap=4;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;labelBackgroundColor=none;dashed=1;strokeWidth=1;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="4T6fihcZslr8NKoiapGG-2" target="4T6fihcZslr8NKoiapGG-38">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="240" y="130" as="sourcePoint" />
+            <mxPoint x="497" y="313" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4T6fihcZslr8NKoiapGG-47" value="" style="endArrow=classic;html=1;rounded=0;hachureGap=4;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;labelBackgroundColor=none;dashed=1;strokeWidth=1;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="4T6fihcZslr8NKoiapGG-2" target="4T6fihcZslr8NKoiapGG-37">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="240" y="130" as="sourcePoint" />
+            <mxPoint x="449" y="363" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4T6fihcZslr8NKoiapGG-48" value="" style="endArrow=classic;html=1;rounded=0;hachureGap=4;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;labelBackgroundColor=none;dashed=1;strokeWidth=1;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="4T6fihcZslr8NKoiapGG-2" target="4T6fihcZslr8NKoiapGG-39">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="250" y="140" as="sourcePoint" />
+            <mxPoint x="459" y="373" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

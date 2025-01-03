@@ -1,0 +1,107 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:133.0) Gecko/20100101 Firefox/133.0" version="26.0.3">
+  <diagram name="Page-1" id="-YRUmJVva1nkJNmpSCl2">
+    <mxGraphModel dx="4924" dy="2234" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="3xWS0pfXMFAA3NOADIPr-4" value="System informatyczny" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12;align=center;" vertex="1" parent="1">
+          <mxGeometry x="510" y="80" width="100" height="420" as="geometry" />
+        </mxCell>
+        <mxCell id="3xWS0pfXMFAA3NOADIPr-5" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12;align=center;" vertex="1" parent="3xWS0pfXMFAA3NOADIPr-4">
+          <mxGeometry x="45" y="100" width="10" height="310" as="geometry" />
+        </mxCell>
+        <mxCell id="3xWS0pfXMFAA3NOADIPr-6" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12;align=center;" vertex="1" parent="3xWS0pfXMFAA3NOADIPr-4">
+          <mxGeometry x="49.97" y="230" width="10" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="3xWS0pfXMFAA3NOADIPr-7" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;5. błąd_wprowadzonych_danych&lt;br&gt;&lt;/font&gt;" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;labelBackgroundColor=none;fontFamily=Verdana;fontSize=12;elbow=vertical;" edge="1" parent="3xWS0pfXMFAA3NOADIPr-4">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-355.03" y="330" as="targetPoint" />
+            <mxPoint x="49.97000000000003" y="330" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3xWS0pfXMFAA3NOADIPr-8" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;6. wyświetlenie_zmienionego_unitermu&lt;br&gt;&lt;/font&gt;" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;labelBackgroundColor=none;fontFamily=Verdana;fontSize=12;elbow=vertical;" edge="1" parent="3xWS0pfXMFAA3NOADIPr-4">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-355.03" y="370" as="targetPoint" />
+            <mxPoint x="49.97000000000003" y="370" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3xWS0pfXMFAA3NOADIPr-9" value="&lt;div&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;4. sprawdź_czy_argumenty&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;nie_są_puste&lt;/font&gt;&lt;/div&gt;" style="html=1;verticalAlign=bottom;endArrow=block;labelBackgroundColor=none;fontFamily=Verdana;fontSize=12;elbow=vertical;edgeStyle=orthogonalEdgeStyle;curved=1;" edge="1" parent="3xWS0pfXMFAA3NOADIPr-4">
+          <mxGeometry x="-0.2618" y="25" relative="1" as="geometry">
+            <mxPoint x="59.97000000000003" y="241" as="sourcePoint" />
+            <mxPoint x="59.97000000000003" y="280" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="114.97000000000003" y="241" />
+              <mxPoint x="114.97000000000003" y="280" />
+            </Array>
+            <mxPoint y="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3xWS0pfXMFAA3NOADIPr-10" value="&lt;div&gt;Klient systemu&lt;/div&gt;" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12;align=center;" vertex="1" parent="1">
+          <mxGeometry x="100" y="80" width="100" height="430" as="geometry" />
+        </mxCell>
+        <mxCell id="3xWS0pfXMFAA3NOADIPr-11" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12;align=center;" vertex="1" parent="3xWS0pfXMFAA3NOADIPr-10">
+          <mxGeometry x="45" y="100" width="10" height="320" as="geometry" />
+        </mxCell>
+        <mxCell id="3xWS0pfXMFAA3NOADIPr-12" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;1. wybór_argumentu_unitermu_poziomego_do_zamiany(prawy/lewy)&lt;br&gt;&lt;/font&gt;" style="html=1;verticalAlign=bottom;endArrow=block;entryX=0;entryY=0;labelBackgroundColor=none;fontFamily=Verdana;fontSize=12;edgeStyle=elbowEdgeStyle;elbow=vertical;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="155" y="200.24324324324323" as="sourcePoint" />
+            <mxPoint x="555" y="200" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3xWS0pfXMFAA3NOADIPr-73" value="" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="135" y="10" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="3xWS0pfXMFAA3NOADIPr-74" value="" style="html=1;verticalAlign=bottom;endArrow=block;entryX=0;entryY=0;labelBackgroundColor=none;fontFamily=Verdana;fontSize=12;edgeStyle=elbowEdgeStyle;elbow=vertical;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="155" y="240.24324324324323" as="sourcePoint" />
+            <mxPoint x="555" y="240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3xWS0pfXMFAA3NOADIPr-75" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;2. wprowadzenie_argumentów_dla_unitermów(A, B, X, Y)&lt;br&gt;&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="3xWS0pfXMFAA3NOADIPr-74">
+          <mxGeometry x="-0.2125" y="-3" relative="1" as="geometry">
+            <mxPoint x="48" y="-13" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3xWS0pfXMFAA3NOADIPr-76" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;3. wykonaj_operację_zmiany_unitermów&lt;/font&gt;" style="html=1;verticalAlign=bottom;endArrow=block;entryX=0;entryY=0;labelBackgroundColor=none;fontFamily=Verdana;fontSize=12;edgeStyle=elbowEdgeStyle;elbow=vertical;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="155" y="280.40324324324325" as="sourcePoint" />
+            <mxPoint x="555" y="280.16" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3xWS0pfXMFAA3NOADIPr-77" value="&lt;div style=&quot;margin-bottom: 65px;&quot; align=&quot;left&quot;&gt;&lt;b&gt;alt&lt;/b&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;align=left;" vertex="1" parent="1">
+          <mxGeometry x="110" y="390" width="470" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="3xWS0pfXMFAA3NOADIPr-78" value="&lt;div style=&quot;margin-bottom: 240px;&quot; align=&quot;left&quot;&gt;&lt;b&gt;loop&lt;/b&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;align=left;" vertex="1" parent="1">
+          <mxGeometry x="90" y="220" width="640" height="260" as="geometry" />
+        </mxCell>
+        <mxCell id="3xWS0pfXMFAA3NOADIPr-79" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;Powtarzaj pętlę aż do podania wszystkich czterech argumentów dla unitermów poziomego i pionowego (po 2 dla każdego)&lt;br&gt;&lt;/font&gt;" style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="-60" y="220" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="3xWS0pfXMFAA3NOADIPr-80" value="" style="endArrow=none;dashed=1;html=1;rounded=0;entryX=0;entryY=0.054;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0;exitY=0;exitDx=120;exitDy=14;exitPerimeter=0;" edge="1" parent="1" source="3xWS0pfXMFAA3NOADIPr-79" target="3xWS0pfXMFAA3NOADIPr-78">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-29" y="310" as="sourcePoint" />
+            <mxPoint x="35" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3xWS0pfXMFAA3NOADIPr-81" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;Jeśli któryś argument jest pusty, to zwróć błąd danych&lt;br&gt;&lt;/font&gt;" style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="-125" y="380" width="145" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="3xWS0pfXMFAA3NOADIPr-82" value="Jeśli wszystkie argumenty są podane, to przeprowadź zmianę unitermów i wyświetl wynik operacji" style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="-110" y="450" width="130" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="3xWS0pfXMFAA3NOADIPr-83" value="" style="endArrow=none;dashed=1;html=1;rounded=0;exitX=1.018;exitY=0.411;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.031;entryY=0.692;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="3xWS0pfXMFAA3NOADIPr-81" target="3xWS0pfXMFAA3NOADIPr-78">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="45" y="440" as="sourcePoint" />
+            <mxPoint x="85" y="402" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3xWS0pfXMFAA3NOADIPr-84" value="" style="endArrow=none;dashed=1;html=1;rounded=0;exitX=0;exitY=0;exitDx=130;exitDy=14;exitPerimeter=0;entryX=0.031;entryY=0.938;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="3xWS0pfXMFAA3NOADIPr-82" target="3xWS0pfXMFAA3NOADIPr-78">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="15" y="412" as="sourcePoint" />
+            <mxPoint x="84" y="442" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
